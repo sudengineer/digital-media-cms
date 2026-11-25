@@ -60,7 +60,7 @@ Targets in this repository are **proposed hypotheses**, not measured results. Se
 | `docs/user-stories.md` | Epics, stories, acceptance criteria |
 | `docs/role-permission-matrix.md` | Proposed role responsibilities, permissions, and access rules |
 | `docs/roadmap.md` | Phased roadmap and release strategy |
-| `docs/backlog.csv` | Prioritized sample backlog |
+| `docs/backlog.csv` | Prioritized sample backlog |\n| `docs/requirements-traceability-matrix.md` | User Story → Backlog → UAT traceability |
 | `diagrams/` | Mermaid source files (`.mmd`) and editable Draw.io diagrams (`.drawio`) |
 | `api/openapi.yaml` | Illustrative REST API contract |
 | `testing/UAT-scenarios.md` | UAT coverage and exit criteria |
@@ -81,5 +81,5 @@ This is a fictional, independently created portfolio case study. All organizatio
 2. Review the [Business Requirements](docs/BRD.md) and [PRD](docs/PRD.md).
 3. Explore the diagrams: [System Context — Mermaid](diagrams/system-context.mmd) · [System Context — Draw.io](diagrams/system-context.drawio) · [Editorial Workflow — Mermaid](diagrams/editorial-workflow.mmd) · [Editorial Workflow — Draw.io](diagrams/editorial-workflow.drawio). Open the `.drawio` files in [diagrams.net](https://app.diagrams.net/) to view and edit the visual diagrams.
 4. Review the [role & permission matrix](docs/role-permission-matrix.md), [user stories](docs/user-stories.md), and [prioritized backlog](docs/backlog.csv).
-5. Review the [API contract](api/openapi.yaml) and [UAT scenarios](testing/UAT-scenarios.md).
+5. Review the [API contract](api/openapi.yaml), [UAT scenarios](testing/UAT-scenarios.md), and [Requirements Traceability Matrix](docs/requirements-traceability-matrix.md).
 6. Finish with the [KPI framework](metrics/kpi-framework.md) and [roadmap](docs/roadmap.md).
