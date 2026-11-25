@@ -30,7 +30,19 @@ The fictional media organization needs a governed platform for managing digital 
 | Security / Compliance | Access governance and traceability | Control requirements |
 | Product team | Outcomes, scope, prioritization | Product decisions and roadmap |
 
-## 5. Business Requirements
+## 5. Primary User Roles & Governance
+
+| Role | Business responsibility | Permission boundary |
+|---|---|---|
+| Journalist / Editor | Create, maintain, and submit content drafts. | Create/edit permissions are limited by content ownership or explicit access. |
+| Section Editor | Review submissions, provide feedback, request changes, and approve eligible content. | Editorial decisions are limited to assigned sections or permitted content. |
+| Publisher | Schedule and publish approved content to configured channels. | Cannot bypass editorial approval in the standard MVP workflow. |
+| SEO Specialist | Maintain and validate search-discovery metadata. | SEO permissions do not grant editorial approval or publishing rights. |
+| CMS Administrator | Manage user accounts, roles, and permissions. | Routine editorial approval and publishing are outside the administrator role. |
+
+The detailed proposed permissions are documented in [Role & Permission Matrix](role-permission-matrix.md). Assignment scope, exceptional access, and any role overlap remain subject to stakeholder validation.
+
+## 6. Business Requirements
 | ID | Requirement | Priority | Rationale |
 |---|---|---|---|
 | BR-01 | The system shall provide a centralized content workspace. | Must | Single source of truth |
@@ -43,21 +55,24 @@ The fictional media organization needs a governed platform for managing digital 
 | BR-08 | The system should provide workflow and publishing dashboards. | Should | Visibility |
 | BR-09 | The system may support advanced editorial automation. | Could | Future efficiency |
 
-## 6. Business Rules
+## 7. Business Rules
 - A content item must have a title, content body or valid media reference, content type, language, and owner before submission.
 - Required metadata may vary by content type and publishing channel.
 - Only users with the relevant permission may perform a workflow transition.
+- SEO metadata must be maintained by an authorized SEO Specialist or another explicitly granted role.
+- SEO metadata access does not grant permission to approve or publish content.
+- User and role administration is restricted to authorized CMS Administrators.
 - A scheduled item must have a valid future publication timestamp and a target channel.
 - A published item must retain its version history and publication event.
 - Corrections to published content must create a traceable version; they must not silently overwrite history.
 - Unpublishing requires an authorized role and a reason.
 
-## 7. Scope Boundaries
+## 8. Scope Boundaries
 **MVP:** Article authoring, review/approval, metadata, RBAC, scheduling, publishing status, audit history, and basic search.
 
 **Later releases:** Video/audio-specific workflows, richer dashboards, advanced taxonomy governance, localization workflow, and automation.
 
-## 8. Business Constraints and Dependencies
+## 9. Business Constraints and Dependencies
 - Identity provider / single sign-on availability.
 - Publishing channel API readiness.
 - Editorial policy and role matrix approval.
@@ -65,5 +80,5 @@ The fictional media organization needs a governed platform for managing digital 
 - Security review and audit retention policy.
 - Content migration and data quality decisions.
 
-## 9. Acceptance at Business Level
+## 10. Acceptance at Business Level
 The business owner accepts the MVP when representative editorial users can complete agreed end-to-end scenarios, role restrictions are verified, scheduled publication behaves as specified, and operational support procedures are approved.
