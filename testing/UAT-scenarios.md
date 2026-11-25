@@ -28,6 +28,9 @@ Validate that the MVP supports critical editorial journeys and business rules fr
 | UAT-13 | Update SEO metadata within assigned scope | SEO Specialist | SEO fields are saved and change is auditable | High |
 | UAT-14 | Attempt SEO metadata update outside assigned scope | SEO Specialist | API denies the action and no metadata is changed | Critical |
 | UAT-15 | Attempt to publish without editorial approval | Publisher | Request is rejected; content remains unpublished | Critical |
+| UAT-16 | Edit and save an existing draft | Journalist / Editor | Updated draft is persisted, version metadata is refreshed, and unauthorized edits are blocked | High |
+| UAT-17 | Verify draft autosave behavior | Journalist / Editor | Changes are saved automatically; save status is visible; failures can be retried without losing content | High |
+| UAT-18 | Assign and revoke a user role | CMS Administrator | Authorized role changes are applied and audited; unauthorized role changes are denied | Critical |
 
 ## 4. Defect Severity
 - **Critical:** Security breach, data loss, unauthorized publication, or core workflow blocked.
