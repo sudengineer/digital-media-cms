@@ -61,7 +61,7 @@ Targets in this repository are **proposed hypotheses**, not measured results. Se
 | `docs/role-permission-matrix.md` | Proposed role responsibilities, permissions, and access rules |
 | `docs/roadmap.md` | Phased roadmap and release strategy |
 | `docs/backlog.csv` | Prioritized sample backlog |
-| `diagrams/` | Workflow and system context diagrams (Mermaid) |
+| `diagrams/` | Mermaid source files (`.mmd`) and editable Draw.io diagrams (`.drawio`) |
 | `api/openapi.yaml` | Illustrative REST API contract |
 | `testing/UAT-scenarios.md` | UAT coverage and exit criteria |
 | `metrics/kpi-framework.md` | North Star, KPI definitions, guardrails |
@@ -79,7 +79,7 @@ This is a fictional, independently created portfolio case study. All organizatio
 ## 8. Suggested Portfolio Walkthrough
 1. Start with the [Product Brief](docs/product-brief.md).
 2. Review the [Business Requirements](docs/BRD.md) and [PRD](docs/PRD.md).
-3. Explore the [system context](diagrams/system-context.mmd) and [editorial workflow](diagrams/editorial-workflow.mmd).
+3. Explore the diagrams: [System Context — Mermaid](diagrams/system-context.mmd) · [System Context — Draw.io](diagrams/system-context.drawio) · [Editorial Workflow — Mermaid](diagrams/editorial-workflow.mmd) · [Editorial Workflow — Draw.io](diagrams/editorial-workflow.drawio). Open the `.drawio` files in [diagrams.net](https://app.diagrams.net/) to view and edit the visual diagrams.
 4. Review the [role & permission matrix](docs/role-permission-matrix.md), [user stories](docs/user-stories.md), and [prioritized backlog](docs/backlog.csv).
 5. Review the [API contract](api/openapi.yaml) and [UAT scenarios](testing/UAT-scenarios.md).
 6. Finish with the [KPI framework](metrics/kpi-framework.md) and [roadmap](docs/roadmap.md).
