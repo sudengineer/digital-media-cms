@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Digital Media CMS API
   version: 1.0.0
-  description: Illustrative API contract for a fictional portfolio case study.
+  description: Illustrative API contract for a fictional portfolio case study. Role permissions are enforced server-side; SEO metadata fields may be updated only by users with SEO permission for the content item.
 servers:
   - url: https://api.example.test/v1
 security:
@@ -75,7 +75,7 @@ paths:
         '404':
           description: Content not found
     patch:
-      summary: Update an editable draft
+      summary: Update an editable draft or permitted metadata
       operationId: updateContent
       tags: [Content]
       parameters:
@@ -183,10 +183,13 @@ components:
           type: string
         seoTitle:
           type: string
+          description: Editable only with SEO metadata permission for the content item.
         seoDescription:
           type: string
+          description: Editable only with SEO metadata permission for the content item.
         slug:
           type: string
+          description: Editable only with SEO metadata permission for the content item.
     TransitionRequest:
       type: object
       required: [action]
