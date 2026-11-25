@@ -58,6 +58,7 @@ Targets in this repository are **proposed hypotheses**, not measured results. Se
 | `docs/BRD.md` | Business requirements and scope |
 | `docs/PRD.md` | Product requirements and functional behavior |
 | `docs/user-stories.md` | Epics, stories, acceptance criteria |
+| `docs/role-permission-matrix.md` | Proposed role responsibilities, permissions, and access rules |
 | `docs/roadmap.md` | Phased roadmap and release strategy |
 | `docs/backlog.csv` | Prioritized sample backlog |
 | `diagrams/` | Workflow and system context diagrams (Mermaid) |
@@ -78,7 +79,7 @@ This is a fictional, independently created portfolio case study. All organizatio
 ## 8. Suggested Portfolio Walkthrough
 1. Start with the [Product Brief](docs/product-brief.md).
 2. Review the [Business Requirements](docs/BRD.md) and [PRD](docs/PRD.md).
-3. Explore the [editorial workflow](diagrams/editorial-workflow.mmd).
-4. Inspect [user stories](docs/user-stories.md) and [prioritized backlog](docs/backlog.csv).
+3. Explore the [system context](diagrams/system-context.mmd) and [editorial workflow](diagrams/editorial-workflow.mmd).
+4. Review the [role & permission matrix](docs/role-permission-matrix.md), [user stories](docs/user-stories.md), and [prioritized backlog](docs/backlog.csv).
 5. Review the [API contract](api/openapi.yaml) and [UAT scenarios](testing/UAT-scenarios.md).
 6. Finish with the [KPI framework](metrics/kpi-framework.md) and [roadmap](docs/roadmap.md).
