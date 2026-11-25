@@ -13,18 +13,21 @@ Validate that the MVP supports critical editorial journeys and business rules fr
 ## 3. Scenarios
 | ID | Scenario | Role | Expected result | Priority |
 |---|---|---|---|---|
-| UAT-01 | Create and save a draft article | Journalist | Draft is created and can be reopened | Critical |
-| UAT-02 | Submit draft with missing required metadata | Journalist | Submission blocked with field-level errors | Critical |
-| UAT-03 | Submit complete draft for review | Journalist | Status changes to In Review | Critical |
+| UAT-01 | Create and save a draft article | Journalist / Editor | Draft is created and can be reopened | Critical |
+| UAT-02 | Submit draft with missing required metadata | Journalist / Editor | Submission blocked with field-level errors | Critical |
+| UAT-03 | Submit complete draft for review | Journalist / Editor | Status changes to In Review | Critical |
 | UAT-04 | Request changes with reviewer comment | Section Editor | Status changes and feedback is visible to author | High |
 | UAT-05 | Approve eligible content | Section Editor | Status becomes Approved; approved version recorded | Critical |
-| UAT-06 | Attempt approval without permission | Journalist | Action denied by server; no state change | Critical |
+| UAT-06 | Attempt approval without permission | Journalist / Editor | Action denied by server; no state change | Critical |
 | UAT-07 | Schedule approved content | Publisher | Schedule created with correct timezone and channel | Critical |
 | UAT-08 | Attempt to schedule unapproved content | Publisher | Request rejected; no job created | Critical |
 | UAT-09 | Simulate channel publication failure | Publisher / Ops | Failure is visible and recoverable; no false Published state | Critical |
-| UAT-10 | Inspect version and audit history | Editor | Actor, timestamp, version, and action are visible | High |
-| UAT-11 | Search by status and owner | Editor | Results match filters and access permissions | Medium |
+| UAT-10 | Inspect version and audit history | Journalist / Editor / Section Editor | Actor, timestamp, version, and action are visible | High |
+| UAT-11 | Search by status and owner | Authorized editorial user | Results match filters and access permissions | Medium |
 | UAT-12 | Withdraw published content with reason | Authorized Publisher | Content is withdrawn and audit event recorded | High |
+| UAT-13 | Update SEO metadata within assigned scope | SEO Specialist | SEO fields are saved and change is auditable | High |
+| UAT-14 | Attempt SEO metadata update outside assigned scope | SEO Specialist | API denies the action and no metadata is changed | Critical |
+| UAT-15 | Attempt to publish without editorial approval | Publisher | Request is rejected; content remains unpublished | Critical |
 
 ## 4. Defect Severity
 - **Critical:** Security breach, data loss, unauthorized publication, or core workflow blocked.
