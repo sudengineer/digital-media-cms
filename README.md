@@ -60,7 +60,8 @@ Targets in this repository are **proposed hypotheses**, not measured results. Se
 | `docs/user-stories.md` | Epics, stories, acceptance criteria |
 | `docs/role-permission-matrix.md` | Proposed role responsibilities, permissions, and access rules |
 | `docs/roadmap.md` | Phased roadmap and release strategy |
-| `docs/backlog.csv` | Prioritized sample backlog |\n| `docs/requirements-traceability-matrix.md` | User Story → Backlog → UAT traceability |
+| `docs/backlog.csv` | Prioritized sample backlog |
+| `docs/requirements-traceability-matrix.md` | User Story → Backlog → UAT traceability |
 | `diagrams/` | Mermaid source files (`.mmd`) and editable Draw.io diagrams (`.drawio`) |
 | `api/openapi.yaml` | Illustrative REST API contract |
 | `testing/UAT-scenarios.md` | UAT coverage and exit criteria |
