@@ -30,11 +30,13 @@ Users lack a single, transparent workspace to manage content and coordinate life
 ## 4. Personas and Core Jobs
 | Persona | Job to be done |
 |---|---|
-| Journalist | When I have a story, I want to draft and submit it with complete metadata so it can be reviewed without avoidable back-and-forth. |
+| Journalist / Editor | When I have a story, I want to draft and submit it with complete metadata so it can be reviewed without avoidable back-and-forth. |
 | Section Editor | When a story is submitted, I want to review, comment, approve, or return it so editorial quality is maintained. |
 | Publisher | When content is approved, I want to publish now or schedule it so release timing is controlled. |
 | SEO Specialist | When content is prepared, I want to validate discoverability fields so channel output is complete. |
-| Administrator | When responsibilities change, I want to manage roles and permissions so access remains appropriate. |
+| CMS Administrator | When responsibilities change, I want to manage roles and permissions so access remains appropriate. |
+
+The five primary roles and their proposed access boundaries are defined in [Role & Permission Matrix](role-permission-matrix.md). Content visibility is additionally constrained by ownership, assignment, or section scope. The CMS Administrator role is focused on access governance; exceptional content access is not assumed.
 
 ## 5. MVP Functional Requirements
 | ID | Requirement | Priority | Acceptance summary |
@@ -48,7 +50,7 @@ Users lack a single, transparent workspace to manage content and coordinate life
 | FR-07 | Schedule publication | Must | Approved content can be scheduled with channel and future timestamp |
 | FR-08 | Publish immediately | Must | Authorized publisher can publish approved content |
 | FR-09 | Manage categories and tags | Must | Controlled taxonomy values can be assigned |
-| FR-10 | Manage SEO metadata | Should | SEO title, description, and slug can be maintained |
+| FR-10 | Manage SEO metadata | Should | An authorized SEO Specialist can maintain SEO title, description, and slug for permitted content |
 | FR-11 | Search and filter content | Should | Users can filter by status, owner, type, date, and taxonomy |
 | FR-12 | View version history | Must | Prior versions and change metadata are accessible |
 | FR-13 | View audit events | Must | Significant actions are recorded with actor and timestamp |
@@ -74,6 +76,8 @@ A content item must not move directly from Draft to Published unless an explicit
 6. Editing approved content invalidates approval if the change affects publishable content.
 7. Every state transition records actor, timestamp, previous state, new state, and optional reason.
 8. API authorization must be enforced server-side; hiding a UI control is not sufficient.
+9. SEO Specialists may manage SEO metadata only for content within their granted scope; this role does not imply editorial approval or publishing permission.
+10. CMS Administrators manage users, roles, and permissions. Any exceptional content access must be separately authorized and audited.
 
 ## 8. Non-Functional Requirements
 | Area | Requirement / target for validation |
@@ -123,6 +127,10 @@ Events should include content ID, content type, actor role, workflow state, chan
 
 ## 12. Open Questions
 - Is approval required for every content type and channel?
+- Can Section Editors create drafts, or are they limited to editorial review and approval?
+- Are SEO Specialists assigned globally or restricted by section/content assignment?
+- Does the CMS Administrator require exceptional read access for support, and what controls govern it?
+- Can Publishers unpublish content directly, or is an additional approval required?
 - Can a publisher schedule on behalf of another team?
 - What is the policy for editing a scheduled item?
 - What happens when a channel is unavailable at scheduled time?
