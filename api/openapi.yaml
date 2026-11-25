@@ -1,0 +1,229 @@
+openapi: 3.0.3
+info:
+  title: Digital Media CMS API
+  version: 1.0.0
+  description: Illustrative API contract for a fictional portfolio case study.
+servers:
+  - url: https://api.example.test/v1
+security:
+  - bearerAuth: []
+paths:
+  /content:
+    post:
+      summary: Create a content draft
+      operationId: createContent
+      tags: [Content]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateContentRequest'
+      responses:
+        '201':
+          description: Draft created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Content'
+        '400':
+          description: Validation error
+        '401':
+          description: Authentication required
+        '403':
+          description: Insufficient permission
+    get:
+      summary: Search content
+      operationId: searchContent
+      tags: [Content]
+      parameters:
+        - in: query
+          name: status
+          schema:
+            type: string
+        - in: query
+          name: ownerId
+          schema:
+            type: string
+        - in: query
+          name: contentType
+          schema:
+            type: string
+        - in: query
+          name: page
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+      responses:
+        '200':
+          description: Paginated content results
+  /content/{contentId}:
+    get:
+      summary: Get content details
+      operationId: getContent
+      tags: [Content]
+      parameters:
+        - $ref: '#/components/parameters/ContentId'
+      responses:
+        '200':
+          description: Content found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Content'
+        '404':
+          description: Content not found
+    patch:
+      summary: Update an editable draft
+      operationId: updateContent
+      tags: [Content]
+      parameters:
+        - $ref: '#/components/parameters/ContentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateContentRequest'
+      responses:
+        '200':
+          description: Content updated
+        '409':
+          description: State or version conflict
+        '403':
+          description: Insufficient permission
+  /content/{contentId}/transitions:
+    post:
+      summary: Request a workflow transition
+      operationId: transitionContent
+      tags: [Workflow]
+      parameters:
+        - $ref: '#/components/parameters/ContentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransitionRequest'
+      responses:
+        '200':
+          description: Transition applied
+        '400':
+          description: Invalid transition or validation failure
+        '403':
+          description: Insufficient permission
+        '409':
+          description: Concurrent state change
+  /content/{contentId}/schedule:
+    post:
+      summary: Schedule approved content
+      operationId: scheduleContent
+      tags: [Publishing]
+      parameters:
+        - $ref: '#/components/parameters/ContentId'
+        - in: header
+          name: Idempotency-Key
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScheduleRequest'
+      responses:
+        '202':
+          description: Publication scheduled
+        '400':
+          description: Invalid schedule request
+        '409':
+          description: Content is not eligible or key conflict
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    ContentId:
+      in: path
+      name: contentId
+      required: true
+      schema:
+        type: string
+  schemas:
+    CreateContentRequest:
+      type: object
+      required: [title, contentType, language]
+      properties:
+        title:
+          type: string
+          minLength: 1
+          maxLength: 180
+        contentType:
+          type: string
+          enum: [article]
+        language:
+          type: string
+          example: en
+        body:
+          type: string
+        categoryIds:
+          type: array
+          items:
+            type: string
+    UpdateContentRequest:
+      type: object
+      properties:
+        title:
+          type: string
+        body:
+          type: string
+        seoTitle:
+          type: string
+        seoDescription:
+          type: string
+        slug:
+          type: string
+    TransitionRequest:
+      type: object
+      required: [action]
+      properties:
+        action:
+          type: string
+          enum: [submit_for_review, request_changes, approve, reject, publish, withdraw]
+        comment:
+          type: string
+    ScheduleRequest:
+      type: object
+      required: [channelIds, publishAt, timezone]
+      properties:
+        channelIds:
+          type: array
+          minItems: 1
+          items:
+            type: string
+        publishAt:
+          type: string
+          format: date-time
+        timezone:
+          type: string
+          example: Europe/Istanbul
+    Content:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        status:
+          type: string
+        version:
+          type: integer
+        ownerId:
+          type: string
+        updatedAt:
+          type: string
+          format: date-time

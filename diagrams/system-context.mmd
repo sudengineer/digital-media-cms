@@ -1,0 +1,25 @@
+flowchart LR
+    subgraph Users
+      A[Journalist]
+      B[Section Editor]
+      C[Publisher]
+      D[Administrator]
+    end
+    CMS[Digital Media CMS]
+    IAM[Identity and Access Management]
+    TAX[Taxonomy Service]
+    MEDIA[Media Storage]
+    API[Channel Publishing API]
+    ANALYTICS[Product Analytics]
+    AUDIT[Audit Event Store]
+
+    A --> CMS
+    B --> CMS
+    C --> CMS
+    D --> CMS
+    CMS <--> IAM
+    CMS <--> TAX
+    CMS <--> MEDIA
+    CMS --> API
+    CMS --> ANALYTICS
+    CMS --> AUDIT
