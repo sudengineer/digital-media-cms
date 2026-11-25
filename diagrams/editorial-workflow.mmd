@@ -1,0 +1,21 @@
+flowchart TD
+    A[Create Draft] --> B[Edit Content and Metadata]
+    B --> C{Required Fields Complete?}
+    C -- No --> B
+    C -- Yes --> D[Submit for Review]
+    D --> E[Editorial Review]
+    E --> F{Review Decision}
+    F -- Changes Requested --> G[Author Updates Content]
+    G --> D
+    F -- Rejected --> H[Rejected]
+    F -- Approved --> I[Approved]
+    I --> J{Publish Now or Later?}
+    J -- Now --> K[Publish to Channel]
+    J -- Later --> L[Create Schedule]
+    L --> M[Scheduled Job]
+    M --> K
+    K --> N{Delivery Result}
+    N -- Success --> O[Published]
+    N -- Failure --> P[Publication Failed / Retry Queue]
+    P --> K
+    O --> Q[Version and Audit History]
