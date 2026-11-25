@@ -1,25 +1,30 @@
 flowchart LR
-    subgraph Users
-      A[Journalist]
-      B[Section Editor]
-      C[Publisher]
-      D[Administrator]
+    subgraph Users["Primary User Roles"]
+      JOURNALIST["Journalist / Editor"]
+      SECTION_EDITOR["Section Editor"]
+      PUBLISHER["Publisher"]
+      SEO["SEO Specialist"]
+      ADMIN["CMS Administrator"]
     end
-    CMS[Digital Media CMS]
-    IAM[Identity and Access Management]
-    TAX[Taxonomy Service]
-    MEDIA[Media Storage]
-    API[Channel Publishing API]
-    ANALYTICS[Product Analytics]
-    AUDIT[Audit Event Store]
 
-    A --> CMS
-    B --> CMS
-    C --> CMS
-    D --> CMS
-    CMS <--> IAM
-    CMS <--> TAX
-    CMS <--> MEDIA
-    CMS --> API
-    CMS --> ANALYTICS
-    CMS --> AUDIT
+    CMS["Digital Media CMS"]
+
+    IAM["Identity and Access Management"]
+    TAX["Taxonomy Service"]
+    MEDIA["Media Storage"]
+    API["Channel Publishing API"]
+    ANALYTICS["Product Analytics"]
+    AUDIT["Audit Event Store"]
+
+    JOURNALIST -->|"Create, edit, and submit content"| CMS
+    SECTION_EDITOR -->|"Review, comment, and approve content"| CMS
+    PUBLISHER -->|"Schedule and publish approved content"| CMS
+    SEO -->|"Manage and validate SEO metadata"| CMS
+    ADMIN -->|"Manage users, roles, and permissions"| CMS
+
+    CMS <-->|"Authentication and authorization"| IAM
+    CMS <-->|"Categories and tags"| TAX
+    CMS <-->|"Upload and retrieve media"| MEDIA
+    CMS -->|"Deliver approved content"| API
+    CMS -->|"Send product events"| ANALYTICS
+    CMS -->|"Record audit events"| AUDIT
