@@ -9,6 +9,18 @@
 | A-04 | Editorial taxonomy can be centrally governed. | Editorial / SEO | Taxonomy review |
 | A-05 | Existing identity infrastructure can support SSO. | IT | Identity integration assessment |
 
+## Role & Permission Assumptions
+
+The five-role model is the proposed baseline for this case study:
+
+- Journalist / Editor: content authoring and submission.
+- Section Editor: editorial review, feedback, change requests, and approval.
+- Publisher: scheduling and publishing approved content.
+- SEO Specialist: SEO metadata maintenance and validation within an authorized scope.
+- CMS Administrator: user, role, and permission administration.
+
+The detailed matrix is maintained in [Role & Permission Matrix](role-permission-matrix.md). These role boundaries are proposed, not confirmed organizational policy. Section Editor authoring rights, SEO assignment scope, Publisher unpublishing rights, and administrator support access remain open for validation.
+
 ## Dependencies
 - Identity and access management
 - Publishing channel API contracts
@@ -32,3 +44,15 @@
 |---|---|---|---|
 | 2026-11-18 | Start with article workflow for MVP. | Narrow, testable end-to-end vertical slice. | Proposed |
 | 2026-11-18 | Treat all numeric targets as hypotheses until baselines exist. | Avoid presenting invented outcomes as measured facts. | Agreed for case study |
+
+
+## Open Questions
+
+| ID | Question | Why it matters | Suggested owner |
+|---|---|---|---|
+| OQ-01 | Can Section Editors create drafts, or are they limited to review and approval? | Determines authoring permissions and workflow separation. | Editorial leadership |
+| OQ-02 | Are SEO Specialists global users or scoped to assigned sections/content? | Determines content visibility and metadata permissions. | SEO lead / Product |
+| OQ-03 | Can Publishers unpublish content without a second approval? | Defines operational control for externally visible actions. | Publishing operations |
+| OQ-04 | Does CMS Administrator need exceptional read access to content for support? | Balances supportability with least-privilege access. | IT / Security |
+| OQ-05 | Which roles can view content across sections, and under what conditions? | Defines list, search, and direct-link authorization. | Editorial leadership / Security |
+| OQ-06 | Can SEO metadata changes after editorial approval require re-approval? | Prevents unclear ownership of publish-ready content. | Editorial / SEO / Product |
