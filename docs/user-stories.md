@@ -4,7 +4,7 @@ Stories use the format: **As a [user], I want [capability], so that [outcome].**
 
 ## Epic E-01 — Content Authoring
 ### US-001 — Create a draft
-As a journalist, I want to create and save a draft article so that I can prepare content before submitting it for review.
+As a Journalist / Editor, I want to create and save a draft article so that I can prepare content before submitting it for review.
 
 **Acceptance criteria**
 - Given I have create permission, when I start a new article, then the system creates a draft with a unique ID.
@@ -21,7 +21,7 @@ As the content owner, I want to edit my draft so that I can improve it before re
 
 ## Epic E-02 — Editorial Review
 ### US-003 — Submit for review
-As a journalist, I want to submit a complete draft for review so that an editor can assess it.
+As a Journalist / Editor, I want to submit a complete draft for review so that an editor can assess it.
 
 **Acceptance criteria**
 - Given all mandatory fields are complete, when I submit, then status changes from Draft to In Review.
@@ -74,7 +74,7 @@ As an editor, I want to inspect previous versions so that I can understand what 
 - A previous version can be inspected without silently replacing the current version.
 
 ### US-009 — Enforce role permissions
-As an administrator, I want to assign approved roles so that users can access only the actions required for their responsibilities.
+As a CMS Administrator, I want to assign approved roles so that users can access only the actions required for their responsibilities.
 
 **Acceptance criteria**
 - Role assignment is restricted to authorized administrators.
@@ -91,3 +91,17 @@ As an editor, I want to filter content by status, owner, type, and date so that 
 - Results respect the user's access permissions.
 - Empty results provide a useful empty state.
 - Pagination and sorting are deterministic.
+
+
+## Epic E-06 — SEO & Metadata Governance
+
+### US-011 — Maintain SEO metadata
+
+As an SEO Specialist, I want to maintain and validate SEO metadata for permitted content so that published content has complete and consistent search-discovery information.
+
+**Acceptance criteria**
+- Given I have SEO metadata permission for a content item, when I update its SEO title, description, or slug, then the system saves the metadata and records the change.
+- Given a required SEO field is missing or exceeds its configured validation rule, when I validate the metadata, then the system identifies the field and explains the issue.
+- Given I do not have permission for the content item, when I attempt to update its SEO metadata through the API, then the request is rejected and no change is saved.
+- SEO metadata permission does not grant permission to approve, schedule, publish, or unpublish content.
+- SEO metadata changes follow the configured versioning and audit rules.
