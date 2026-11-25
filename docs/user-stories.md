@@ -19,6 +19,16 @@ As the content owner, I want to edit my draft so that I can improve it before re
 - Given the draft is locked or no longer editable, when I attempt to save, then the system explains why the update is blocked.
 - Every successful save records actor and timestamp in version metadata.
 
+### US-012 — Autosave draft changes
+
+As a Journalist / Editor, I want my draft changes to be saved automatically so that I do not lose work if I navigate away or experience an interruption.
+
+**Acceptance criteria**
+- Given I am editing an editable draft, when I make changes, then the system automatically saves them after the configured inactivity interval.
+- The interface clearly indicates saving, saved, or save-failed status.
+- Given an autosave fails, when the failure occurs, then the user is informed and can retry without losing the unsaved content.
+- Autosave does not submit the draft for review or change its workflow status.
+
 ## Epic E-02 — Editorial Review
 ### US-003 — Submit for review
 As a Journalist / Editor, I want to submit a complete draft for review so that an editor can assess it.
@@ -63,6 +73,16 @@ As a publisher, I want to publish approved content immediately so that time-sens
 - The system sends the approved version to the selected channel.
 - Success or failure is visible to the user.
 - A publication event is recorded with channel, version, actor, and timestamp.
+
+### US-013 — Unpublish or withdraw published content
+
+As an authorized Publisher, I want to unpublish or withdraw published content with a reason so that incorrect or no-longer-valid content can be removed from a channel in a controlled and auditable way.
+
+**Acceptance criteria**
+- Given content is published and I have the required permission, when I request unpublish or withdrawal with a reason, then the system sends the removal request to the selected channel.
+- The system records the actor, reason, content version, channel, and timestamp.
+- Given I do not have the required permission or provide no reason, when I request the action, then the request is rejected and the published state is not changed.
+- The system displays the channel response and does not report successful withdrawal before confirmation.
 
 ## Epic E-04 — Governance
 ### US-008 — View version history
