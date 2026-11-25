@@ -84,3 +84,7 @@ This is a fictional, independently created portfolio case study. All organizatio
 4. Review the [role & permission matrix](docs/role-permission-matrix.md), [user stories](docs/user-stories.md), and [prioritized backlog](docs/backlog.csv).
 5. Review the [API contract](api/openapi.yaml), [UAT scenarios](testing/UAT-scenarios.md), and [Requirements Traceability Matrix](docs/requirements-traceability-matrix.md).
 6. Finish with the [KPI framework](metrics/kpi-framework.md) and [roadmap](docs/roadmap.md).
+
+## Presentation
+
+- [Product Case Study presentation guide and slide outline](presentation/README.md)
