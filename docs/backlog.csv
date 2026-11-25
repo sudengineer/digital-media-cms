@@ -12,3 +12,4 @@ US-010,Search & Monitoring,Search editorial content,Should,5,Next,Search indexin
 FR-03,Content Authoring,Autosave draft changes,Should,5,Next,US-001
 FR-10,SEO,Manage SEO metadata,Should,3,Next,Taxonomy rules
 FR-15,Publishing,Unpublish or withdraw content,Should,5,Next,Audit policy
+US-011,SEO & Metadata Governance,Maintain and validate SEO metadata,Should,3,Next,Metadata validation rules
