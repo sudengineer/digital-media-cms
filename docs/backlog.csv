@@ -13,3 +13,5 @@ FR-03,Content Authoring,Autosave draft changes,Should,5,Next,US-001
 FR-10,SEO,Manage SEO metadata,Should,3,Next,Taxonomy rules
 FR-15,Publishing,Unpublish or withdraw content,Should,5,Next,Audit policy
 US-011,SEO & Metadata Governance,Maintain and validate SEO metadata,Should,3,Next,Metadata validation rules
+US-012,Content Authoring,Autosave draft changes,Should,5,Next,US-001
+US-013,Publishing,Unpublish or withdraw published content,Should,5,Next,FR-15 audit policy
